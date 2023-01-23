@@ -1,3 +1,13 @@
+import importlib.util
+import os
+def module_exists(module_name):
+    spec = importlib.util.find_spec(module_name)
+    return spec is not None
+if module_exists("flask"):
+    print("模块存在")
+else:
+    print("模块不存在")
+    os.system("pip install flask")
 from flask import Flask, render_template
 import sqlite3
 app = Flask(__name__)
